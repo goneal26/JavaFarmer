@@ -1,6 +1,6 @@
 package clickerTest;
 
-public abstract class Resource {
+public class Resource {
 	private int amount;
 	private int maximum;
 	private String name; // mostly exists for setting the labels
