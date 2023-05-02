@@ -20,11 +20,13 @@ public class ClickerTest {
 
 	public ClickerTest() {
 		// make buttons and labels
-		JFrame frame = new JFrame("Button Example");
+		JFrame frame = new JFrame("Berry Farmer");
 		JButton button = new JButton("Forage");
+		JButton emptyButton = new JButton("I'm empty");
 		JLabel label = new JLabel("Berries: " + berryCount + " / " + maxBerries); // label to display count
 		JLabel stickLabel = new JLabel("Sticks: " + stickCount + " / " + maxSticks); // stick count label
 		JLabel hungerLabel = new JLabel("Hunger: " + hungerLevel); // hunger level label
+		JLabel notiLabel = new JLabel("Forage for supplies!"); // flavor text
 
 		// button for increasing berry storage
 		JButton basketButton = new JButton("Make Basket");
@@ -33,17 +35,24 @@ public class ClickerTest {
 		// button for eating
 		JButton eatButton = new JButton("Eat");
 
+		// empty button just for formatting
+		emptyButton.setVisible(false);
+
 		// Layout for the sticks and berries
 		JPanel labelPanel = new JPanel(new GridLayout(4, 1));
+		labelPanel.add(notiLabel);
+		labelPanel.add(hungerLabel);
 		labelPanel.add(label);
 		labelPanel.add(stickLabel);
-		labelPanel.add(hungerLabel);
+		
 
 		// layout for buttons
-		JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
-		buttonPanel.add(button);
+		JPanel buttonPanel = new JPanel(new GridLayout(4, 1));
+		buttonPanel.add(emptyButton);
 		buttonPanel.add(eatButton);
+		buttonPanel.add(button);
 		buttonPanel.add(basketButton);
+		
 
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -52,15 +61,24 @@ public class ClickerTest {
 					berryCount++; // increment the count
 					label.setText("Berries: " + berryCount + " / " + maxBerries); // update the label text
 				}
-				int randomNum = (int) (Math.random() * 3) + 1;
-				if (randomNum == 1) {
+				int randomNum = (int) (Math.random() * 3);
+				if (randomNum > 0) {
+					int stickNum = (int) (Math.random() * 4);
 					if (stickCount < maxSticks) {
-						stickCount += randomNum; // increment stick count by random number
+						stickCount += stickNum; // increment stick count by random number
+						stickLabel.setText("Sticks: " + stickCount + " / " + maxSticks); // update stick label text
+						notiLabel.setText("You found " + stickNum + " stick(s)");
+					}
+					if ((stickCount + stickNum) > maxSticks) {
+						stickCount = maxSticks;
 						stickLabel.setText("Sticks: " + stickCount + " / " + maxSticks); // update stick label text
 					}
 				}
 				if (stickCount >= 10) {
 					basketButton.setVisible(true);
+				}
+				if (stickCount == maxSticks) {
+					notiLabel.setText("No room!");
 				}
 			}
 		});
@@ -73,6 +91,7 @@ public class ClickerTest {
 				stickLabel.setText("Sticks: " + stickCount + " / " + maxSticks); // update the stick label text
 				maxBerries += 10; // Increase berry count limit
 				label.setText("Berries: " + berryCount + " / " + maxBerries); // update the berry label text
+				notiLabel.setText("More storage!");
 				if (stickCount < 10) {
 					basketButton.setVisible(false); // Hide the reset button
 				}
@@ -89,12 +108,13 @@ public class ClickerTest {
 					}
 					berryCount -= 5; // Increase berry count limit
 					label.setText("Berries: " + berryCount + " / " + maxBerries); // update the berry label text
+					notiLabel.setText("Delicious!");
 				}
 			}
 		});
 
 		// setup the window
-		frame.add(buttonPanel, BorderLayout.PAGE_END); // add button to top of frame
+		frame.add(buttonPanel, BorderLayout.EAST); // add button to top of frame
 		frame.add(labelPanel, BorderLayout.CENTER); // add label to bottom of frame
 		frame.pack();
 		frame.setVisible(true);
