@@ -1,4 +1,4 @@
-package clickerTest;
+package GameObjects;
 
 public class Resource {
 	private int amount;
