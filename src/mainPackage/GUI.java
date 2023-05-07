@@ -64,51 +64,6 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-
-	}
-
-	public void startGUI() {
-		windowWidth = 800;
-		windowHeight = 600;
-
-		// create components
-		frame = new JFrame("Berry Farmer");
-		forageButton = new JButton("Forage");
-		emptyButton = new JButton("I'm empty");
-		basketButton = new JButton("Make Basket");
-		basketButton.setVisible(false);
-		eatButton = new JButton("Eat");
-		makeFarmButton = new JButton("New Farm");
-		makeFarmButton.setVisible(false);
-		berryCountLabel = new JLabel("Berries: 0 / 10");
-		stickCountLabel = new JLabel("Sticks: 0 / 10");
-		hungerLevelLabel = new JLabel("Hunger: 0");
-		notificationLabel = new JLabel("Forage for supplies!");
-		farmCountLabel = new JLabel("Current Farms: 0");
-
-		// create panels
-		JPanel labelPanel = new JPanel(new GridLayout(5, 1));
-		labelPanel.add(notificationLabel);
-		labelPanel.add(hungerLevelLabel);
-		labelPanel.add(berryCountLabel);
-		labelPanel.add(stickCountLabel);
-		labelPanel.add(farmCountLabel);
-
-		JPanel buttonPanel = new JPanel(new GridLayout(5, 1));
-		buttonPanel.add(emptyButton);
-		buttonPanel.add(eatButton);
-		buttonPanel.add(forageButton);
-		buttonPanel.add(basketButton);
-		buttonPanel.add(makeFarmButton);
-
-		// add components to frame
-		frame.getContentPane().add(labelPanel, BorderLayout.WEST);
-		frame.getContentPane().add(buttonPanel, BorderLayout.EAST);
-
-		// configure frame
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
 		emptyButton.setVisible(false);
 	}
 
