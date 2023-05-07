@@ -17,6 +17,7 @@ public class ClickerTest {
 	private int maxBerries = 10; // Initial limit
 	private int maxSticks = 10;
 	private int hungerLevel = 100; // initial hunger level
+	private int berryFarms = 0;
 
 	public ClickerTest() {
 		// make buttons and labels
@@ -27,10 +28,14 @@ public class ClickerTest {
 		JLabel stickLabel = new JLabel("Sticks: " + stickCount + " / " + maxSticks); // stick count label
 		JLabel hungerLabel = new JLabel("Hunger: " + hungerLevel); // hunger level label
 		JLabel notiLabel = new JLabel("Forage for supplies!"); // flavor text
+		JLabel farmLabel = new JLabel("Current Farms: " + berryFarms);
 
 		// button for increasing berry storage
 		JButton basketButton = new JButton("Make Basket");
 		basketButton.setVisible(false);
+		
+		JButton makeFarm = new JButton("New Farm");
+		makeFarm.setVisible(false);
 
 		// button for eating
 		JButton eatButton = new JButton("Eat");
@@ -39,19 +44,21 @@ public class ClickerTest {
 		emptyButton.setVisible(false);
 
 		// Layout for the sticks and berries
-		JPanel labelPanel = new JPanel(new GridLayout(4, 1));
+		JPanel labelPanel = new JPanel(new GridLayout(5, 1));
 		labelPanel.add(notiLabel);
 		labelPanel.add(hungerLabel);
 		labelPanel.add(label);
 		labelPanel.add(stickLabel);
+		labelPanel.add(farmLabel);
 		
 
 		// layout for buttons
-		JPanel buttonPanel = new JPanel(new GridLayout(4, 1));
+		JPanel buttonPanel = new JPanel(new GridLayout(5, 1));
 		buttonPanel.add(emptyButton);
 		buttonPanel.add(eatButton);
 		buttonPanel.add(button);
 		buttonPanel.add(basketButton);
+		buttonPanel.add(makeFarm);
 		
 
 		button.addActionListener(new ActionListener() {
@@ -79,6 +86,9 @@ public class ClickerTest {
 				}
 				if (stickCount == maxSticks) {
 					notiLabel.setText("No room!");
+				}
+				if (berryCount >= 100) {
+					makeFarm.setVisible(true);
 				}
 			}
 		});
@@ -112,12 +122,28 @@ public class ClickerTest {
 				}
 			}
 		});
+		
+		makeFarm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (berryCount >= 100) {
+					berryCount -= 100;
+					label.setText("Berries: " + berryCount + " / " + maxBerries); // update the berry label text
+					berryFarms++;
+					farmLabel.setText("Current Farms: " + berryFarms);
+					if (berryCount < 100) {
+						makeFarm.setVisible(false);
+					}
+				}
+				
+			}
+		});
 
 		// setup the window
 		frame.add(buttonPanel, BorderLayout.EAST); // add button to top of frame
 		frame.add(labelPanel, BorderLayout.CENTER); // add label to bottom of frame
 		frame.pack();
 		frame.setVisible(true);
+		frame.setSize(300, 300);
 
 		// decrease hunger level every second
 		new Thread(new Runnable() {
