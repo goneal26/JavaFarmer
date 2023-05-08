@@ -14,13 +14,6 @@ public class Player {
         sticks = new Resource(0, 10, "sticks");
         berries = new Resource(0, 10, "berries");
     }
-    
-    public void initPlayer() {
-        hunger = 100;
-        maxHunger = 100;
-        sticks = new Resource(0, 10, "sticks");
-        berries = new Resource(0, 10, "berries");
-    }
 
     public int getHunger() {
         return hunger;

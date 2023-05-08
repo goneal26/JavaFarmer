@@ -16,8 +16,9 @@ public class Game {
     	Player p = new Player();
     	Resource berries = new Resource(10, 10, "berries");
     	Resource sticks = new Resource(10, 10, "sticks");
-    	p.initPlayer();
-    	g.updateLabels(berries.getAmount(), berries.getMaximum(), sticks.getAmount(), sticks.getMaximum(), p.getHunger(), 0);
+    	Farm f = new Farm("Berry Farm", berries);
+
+    	g.updateLabels(berries.getAmount(), berries.getMaximum(), sticks.getAmount(), sticks.getMaximum(), p.getHunger(), f.getCount());
     	
     }
 

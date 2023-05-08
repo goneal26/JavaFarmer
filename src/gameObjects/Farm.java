@@ -6,7 +6,7 @@ public class Farm implements Item {
     private Resource resource;
 
     public Farm(String type, Resource res) {
-        count = 1;
+        count = 0;
         name = type;
         resource = res;
     }
