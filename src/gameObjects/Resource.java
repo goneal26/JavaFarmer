@@ -6,30 +6,28 @@ public class Resource {
     private String name;
 
     public Resource(int n, int max, String s) {
-        amount = n;
-        maximum = max;
-        name = s;
+        this.amount = n;
+        this.maximum = max;
+        this.name = s;
     }
 
     public int getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(int n) {
-        amount = n;
-        if (amount > maximum) {
-            amount = maximum;
+        if (n <= maximum && n > 0) {
+            this.amount = n;
         }
     }
 
     public int getMaximum() {
-        return maximum;
+        return this.maximum;
     }
 
     public void setMaximum(int n) {
-        maximum = n;
-        if (amount > maximum) {
-            amount = maximum;
+        if (n > 0) {
+            this.maximum = n;
         }
     }
 
@@ -38,20 +36,26 @@ public class Resource {
     }
 
     public void increment(int n) {
-        amount += n;
-        if (amount > maximum) {
-            amount = maximum;
-        }
+    	if (n > 0) {
+    		this.amount += n;
+    		if (this.amount > this.maximum) {
+    			this.amount = this.maximum;
+    		}
+    	}
     }
 
     public void decrement(int n) {
-        amount -= n;
-        if (amount < 0) {
-            amount = 0;
-        }
+    	if (n > 0) {
+    		this.amount -= n;
+            if (this.amount < 0) {
+                this.amount = 0;
+            }
+    	}
     }
 
     public void increaseMaximum(int n) {
-        maximum += n;
+    	if (n > 0) {
+    		maximum += n;
+    	}
     }
 }

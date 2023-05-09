@@ -3,20 +3,13 @@ package mainPackage;
 import gameObjects.*;
 
 public class Game {
-    private Player player;
-    private GUI gui;
-
-    public Game(Player p) {
-        player = p;
-        
-    }
 
     public static void main(String[] args) {
     	//initialize objects
     	GUI g = new GUI();
-    	Player p = new Player();
     	Resource berries = new Resource(10, 10, "berries");
     	Resource sticks = new Resource(10, 10, "sticks");
+    	Player p = new Player(100, 100, berries, sticks);
     	Farm f = new Farm("Berry Farm", berries);
 
     	//GUI Controllers (button conditions)
@@ -38,7 +31,12 @@ public class Game {
     }
 
     public void saveGame(Player p) {
-        // Implementation to be added later
+        String[] data = {
+        		"hunger: " + p.getHunger(),
+        		"maxHunger: " + p.getMaxHunger()
+        }; // TO-DO
+        
+        
     }
 
     public void loadGame() {

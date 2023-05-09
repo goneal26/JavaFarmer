@@ -3,27 +3,32 @@ package mainPackage;
 import gameObjects.Resource;
 
 public class Player {
-    private int hunger;
-    private int maxHunger;
-    private Resource sticks;
-    private Resource berries;
-
-    public Player() {
-        hunger = 100;
-        maxHunger = 100;
-        sticks = new Resource(0, 10, "sticks");
-        berries = new Resource(0, 10, "berries");
+    private int hunger = 100;
+    private int maxHunger = 100;
+    private Resource sticks = new Resource(0, 10, "sticks");
+    private Resource berries = new Resource(0, 10, "berries");
+    
+    public Player(int h, int mh, Resource s, Resource b) {
+    	if (h > 0 && mh > 0 && mh >= h) {
+    		this.hunger = h;
+        	this.maxHunger = mh;
+    	}
+    	this.sticks = s;
+    	this.berries = b;
     }
 
     public int getHunger() {
-        return hunger;
+        return this.hunger;
     }
 
     public void setHunger(int n) {
-        hunger = n;
-        if (hunger > maxHunger) {
-            hunger = maxHunger;
+        if (n <= this.maxHunger && n > 0) {
+            this.hunger = n;
         }
+    }
+    
+    public int getMaxHunger() {
+    	return this.maxHunger;
     }
 
     public void incrementHunger(int n) {
@@ -45,4 +50,5 @@ public class Player {
     	hunger = maxHunger;
     	
     }
+    
 }
