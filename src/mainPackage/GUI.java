@@ -1,6 +1,7 @@
 package mainPackage;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -23,8 +24,15 @@ public class GUI {
 	public JLabel farmCountLabel;
 
 	public GUI() {
-		windowWidth = 800;
-		windowHeight = 600;
+    	try {
+            // Set the Look and Feel to the system's default
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    	
+		windowWidth = 350;
+		windowHeight = 200;
 
 		// create components
 		frame = new JFrame("Berry Farmer");
@@ -40,6 +48,9 @@ public class GUI {
 		hungerLevelLabel = new JLabel("Hunger: 0");
 		notificationLabel = new JLabel("Forage for supplies!");
 		farmCountLabel = new JLabel("Current Farms: 0");
+		
+
+
 
 		// create panels
 		JPanel labelPanel = new JPanel(new GridLayout(5, 1));
@@ -62,7 +73,7 @@ public class GUI {
 
 		// configure frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
+		frame.setSize(windowWidth, windowHeight);
 		frame.setVisible(true);
 		emptyButton.setVisible(false);
 	}

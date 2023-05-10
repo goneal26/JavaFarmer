@@ -1,7 +1,9 @@
 package mainPackage;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.UIManager;
 
 import gameObjects.*;
 
@@ -17,7 +19,8 @@ public class Game {
     	HungerTimer h = new HungerTimer(p, g);
     	h.start();
 
-    	//GUI Controllers (button conditions)
+    	//GUI Controllers (button conditions)   
+    	g.notificationLabel.setFont(new Font("Arial", Font.PLAIN, 20));
     	g.updateLabels(berries.getAmount(), berries.getMaximum(), sticks.getAmount(), sticks.getMaximum(), p.getHunger(), f.getCount());
     	if (berries.getAmount() >= 100) {
     		g.setMakeFarmButtonVisible(true);
