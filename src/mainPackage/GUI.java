@@ -11,16 +11,16 @@ public class GUI {
 	private int windowHeight;
 
 	private JFrame frame;
-	private JButton forageButton;
-	private JButton emptyButton;
-	private JButton basketButton;
-	private JButton eatButton;
-	private JButton makeFarmButton;
-	private JLabel berryCountLabel;
-	private JLabel stickCountLabel;
-	private JLabel hungerLevelLabel;
-	private JLabel notificationLabel;
-	private JLabel farmCountLabel;
+	public JButton forageButton;
+	public JButton emptyButton;
+	public JButton basketButton;
+	public JButton eatButton;
+	public JButton makeFarmButton;
+	public JLabel berryCountLabel;
+	public JLabel stickCountLabel;
+	public JLabel hungerLevelLabel;
+	public JLabel notificationLabel;
+	public JLabel farmCountLabel;
 
 	public GUI() {
 		windowWidth = 800;
