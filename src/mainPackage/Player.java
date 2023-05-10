@@ -5,8 +5,8 @@ import gameObjects.Resource;
 public class Player {
     private int hunger = 100;
     private int maxHunger = 100;
-    private Resource sticks = new Resource(0, 10, "sticks");
-    private Resource berries = new Resource(0, 10, "berries");
+    public Resource sticks = new Resource(0, 10, "sticks");
+    public Resource berries = new Resource(0, 10, "berries");
     
     public Player(int h, int mh, Resource s, Resource b) {
     	if (h > 0 && mh > 0 && mh >= h) {
