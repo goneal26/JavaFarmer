@@ -33,7 +33,7 @@ public class ClickerTest {
 		// button for increasing berry storage
 		JButton basketButton = new JButton("Make Basket");
 		basketButton.setVisible(false);
-		
+
 		JButton makeFarm = new JButton("New Farm");
 		makeFarm.setVisible(false);
 
@@ -50,7 +50,6 @@ public class ClickerTest {
 		labelPanel.add(label);
 		labelPanel.add(stickLabel);
 		labelPanel.add(farmLabel);
-		
 
 		// layout for buttons
 		JPanel buttonPanel = new JPanel(new GridLayout(5, 1));
@@ -59,7 +58,6 @@ public class ClickerTest {
 		buttonPanel.add(button);
 		buttonPanel.add(basketButton);
 		buttonPanel.add(makeFarm);
-		
 
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,7 +120,7 @@ public class ClickerTest {
 				}
 			}
 		});
-		
+
 		makeFarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (berryCount >= 100) {
@@ -134,7 +132,7 @@ public class ClickerTest {
 						makeFarm.setVisible(false);
 					}
 				}
-				
+
 			}
 		});
 
@@ -165,6 +163,6 @@ public class ClickerTest {
 
 	// Main method
 	public static void main(String[] args) {
-		ClickerTest example = new ClickerTest();
+		new ClickerTest();
 	}
 }
