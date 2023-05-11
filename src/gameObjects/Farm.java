@@ -1,26 +1,47 @@
 package gameObjects;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import mainPackage.GUI;
+
 public class Farm implements Item {
     private int count;
     private String name;
     private Resource resource;
+    private Timer timer = new Timer();
+    private GUI gui; // temporary solution for the presentation
 
-    public Farm(String type, Resource res) {
+    public Farm(String type, Resource res, GUI g) {
         this.count = 0;
         this.name = type;
         this.resource = res;
+        this.gui = g;
     }
 
-    public Farm(String type, Resource res, int amt) {
+    public Farm(String type, Resource res, GUI g, int amt) {
     	if (amt > 0) {
     		this.count = amt;
     	}
         this.name = type;
         this.resource = res;
+        this.gui = g;
     }
 
+    private void startTimer() {
+    	this.timer.scheduleAtFixedRate(new TimerTask() {
+    		public void run() {
+    			if (count >= 1) {
+    				resource.increment(40);
+    			}
+    			gui.berryCountLabel.setText("Berries: " + resource.getAmount() + " / " + resource.getMaximum());
+    		}
+    	}, 0, 60000); // add 40 berries every minute
+    }
+    
     public void craftItem() {
-        // Implementation to be added later
+    	if (this.count < 1) {
+    		this.startTimer();
+    	}
     	this.count ++;
     }
 

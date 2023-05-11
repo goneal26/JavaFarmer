@@ -23,7 +23,7 @@ public class HungerTimer {
             	if (player.getHunger() > 0) {
                 player.decrementHunger(1);
             	}
-                gui.hungerLevelLabel.setText(player.getHunger() + " / " + player.getMaxHunger());
+                gui.hungerLevelLabel.setText("Hunger: " + player.getHunger() + " / " + player.getMaxHunger());
             }
         }, 0, 1000); // decrement hunger every second
     }

@@ -1,14 +1,14 @@
 package gameObjects;
 
-public class Container implements Item {
+public class Container implements Item { // thinkin about just deleting this class
     private int count;
     private String name;
-    private Resource resource; // might tweak how this works later
+    private Resource material; // this is the resource that is used to craft the item
 
     public Container(String type, Resource res) {
         this.count = 1;
         this.name = type;
-        this.resource = res;
+        this.material = res;
     }
 
     public Container(String type, Resource res, int amt) {
@@ -16,12 +16,13 @@ public class Container implements Item {
     		this.count = amt;
     	}
         this.name = type;
-        this.resource = res;
+        this.material = res;
     }
 
     public void craftItem() {
         this.count++;
     }
+    
 
     public int getCount() {
         return this.count;

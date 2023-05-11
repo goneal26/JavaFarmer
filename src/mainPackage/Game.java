@@ -15,7 +15,7 @@ public class Game {
     	Resource berries = new Resource(0, 10, "berries");
     	Resource sticks = new Resource(0, 10, "sticks");
     	Player p = new Player(100, 100, berries, sticks);
-    	Farm f = new Farm("Berry Farm", berries);
+    	Farm f = new Farm("Berry Farm", p.berries, g);
     	HungerTimer h = new HungerTimer(p, g);
     	h.start();
 
