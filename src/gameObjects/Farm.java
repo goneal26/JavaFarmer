@@ -31,7 +31,7 @@ public class Farm implements Item {
     	this.timer.scheduleAtFixedRate(new TimerTask() {
     		public void run() {
     			if (count >= 1) {
-    				resource.increment(40);
+    				resource.increment(40 * count);
     			}
     			gui.berryCountLabel.setText("Berries: " + resource.getAmount() + " / " + resource.getMaximum());
     		}
