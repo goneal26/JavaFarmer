@@ -12,13 +12,13 @@ public class HungerTimer {
     private GUI gui;
 
     public HungerTimer(Player p, GUI g) {
-        timer = new Timer();
-        player = p;
-        gui = g;
+        this.timer = new Timer();
+        this.player = p;
+        this.gui = g;
     }
 
     public void start() {
-        timer.scheduleAtFixedRate(new TimerTask() {
+        this.timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
             	if (player.getHunger() > 0) {
                 player.decrementHunger(1);

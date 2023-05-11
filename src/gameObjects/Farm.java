@@ -6,39 +6,43 @@ public class Farm implements Item {
     private Resource resource;
 
     public Farm(String type, Resource res) {
-        count = 0;
-        name = type;
-        resource = res;
+        this.count = 0;
+        this.name = type;
+        this.resource = res;
     }
 
     public Farm(String type, Resource res, int amt) {
-        count = amt;
-        name = type;
-        resource = res;
+    	if (amt > 0) {
+    		this.count = amt;
+    	}
+        this.name = type;
+        this.resource = res;
     }
 
     public void craftItem() {
         // Implementation to be added later
-    	count ++;
+    	this.count ++;
     }
 
     public int getCount() {
-        return count;
+        return this.count;
     }
 
     public void setCount(int n) {
-        count = n;
+    	if (n >= 0) {
+    		this.count = n;
+    	}
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String s) {
-        name = s;
+        this.name = s;
     }
 
     public void harvest() {
-        resource.increment(count);
+        this.resource.increment(this.count);
     }
 }

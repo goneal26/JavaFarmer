@@ -32,16 +32,16 @@ public class Player {
     }
 
     public void incrementHunger(int n) {
-        hunger += n;
-        if (hunger > maxHunger) {
-            hunger = maxHunger;
+        this.hunger += n;
+        if (this.hunger > this.maxHunger) {
+            this.hunger = this.maxHunger;
         }
     }
 
     public void decrementHunger(int n) {
-        hunger -= n;
-        if (hunger < 0) {
-            hunger = 0;
+        this.hunger -= n;
+        if (this.hunger < 0) {
+            this.hunger = 0;
         }
     }
 

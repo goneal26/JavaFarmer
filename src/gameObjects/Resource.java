@@ -55,7 +55,7 @@ public class Resource {
 
     public void increaseMaximum(int n) {
     	if (n > 0) {
-    		maximum += n;
+    		this.maximum += n;
     	}
     }
 }
