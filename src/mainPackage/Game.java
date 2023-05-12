@@ -156,13 +156,11 @@ public class Game {
 				g.notificationLabel.setText("Thanks for playing!");
 			}
 		});
-
 	}
 
 	public void saveGame(Player p) {
 		@SuppressWarnings("unused")
 		String[] data = { "hunger: " + p.getHunger(), "maxHunger: " + p.getMaxHunger() }; // TO-DO
-
 	}
 
 	public void loadGame() {

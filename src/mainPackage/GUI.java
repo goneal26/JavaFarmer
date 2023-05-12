@@ -26,7 +26,7 @@ public class GUI {
 
 	public GUI() {
 		try {
-			// Set the Look and Feel to the system's default
+			// Set the Look and Feel to Nimbus
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,7 +49,7 @@ public class GUI {
 		hungerLevelLabel = new JLabel("Hunger: 0");
 		notificationLabel = new JLabel("Forage for supplies!");
 		farmCountLabel = new JLabel("Current Farms: 0");
-		landCountLabel = new JLabel("Availible Land: 10");
+		landCountLabel = new JLabel("Available Land: 10");
 		advanceButton = new JButton("Advance");
 		advanceButton.setVisible(false);
 
@@ -101,7 +101,7 @@ public class GUI {
 			int hungerLevel, int berryFarms) {
 		berryCountLabel.setText("Berries: " + berryCount + " / " + maxBerries);
 		stickCountLabel.setText("Sticks: " + stickCount + " / " + maxSticks);
-		landCountLabel.setText("Availible Land: " + landCount + " / " + maxLand);
+		landCountLabel.setText("Available Land: " + landCount + " / " + maxLand);
 		hungerLevelLabel.setText("Hunger: " + hungerLevel);
 		farmCountLabel.setText("Current Farms: " + berryFarms);
 	}
