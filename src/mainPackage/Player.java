@@ -113,7 +113,7 @@ public class Player {
 	 * Resets the hunger level of the player to the maximum hunger level.
 	 */
 	public void reset() {
-		hunger = maxHunger;
+		this.hunger = this.maxHunger;
 	}
 }
 
