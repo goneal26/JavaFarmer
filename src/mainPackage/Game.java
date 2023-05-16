@@ -1,3 +1,14 @@
+/**
+ * @author Seamus Jackson
+ * @author Tre O'Neal
+ * 
+ * This is the main class that runs when the game runs (containing the main method).
+ * Everything comes together here to run the game. The only thing we didn't get to implement
+ * was saving and loading player data because we ended up running out of time, although everything
+ * is here to where we could implement it in the future. Not only that, but the game is still fairly
+ * simple and short, so saving wouldn't actually mean much.
+ */
+
 package mainPackage;
 
 import java.awt.Font;
@@ -157,7 +168,8 @@ public class Game {
 			}
 		});
 	}
-
+	
+	/* Ran out of time to implement
 	public void saveGame(Player p) {
 		@SuppressWarnings("unused")
 		String[] data = { "hunger: " + p.getHunger(), "maxHunger: " + p.getMaxHunger() }; // TO-DO
@@ -166,4 +178,5 @@ public class Game {
 	public void loadGame() {
 		// Implementation to be added later
 	}
+	*/
 }

@@ -1,6 +1,12 @@
+/**
+ * @author Tre O'Neal
+ * 
+ * See UPDATE section at bottom of class
+ */
+
 package mainPackage;
 
-import gameObjects.Resource;
+import gameObjects.Resource; // not implemented yet
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -20,7 +26,7 @@ public abstract class Button {
 	public boolean getVisiblity() {
 		return this.isVisible;
 	}
-	// tired af gonna keep working on this tomorrow
+	// 
 	/* 
 	 * TO-DO:
 	 * this is gonna be an abstract class that our resource
@@ -29,5 +35,11 @@ public abstract class Button {
 	 * af but I think im figuring it out, been sketching out how
 	 * its gonna work
 	 * 
+	 * 
+	 * UPDATE:
+	 * Didn't end up completing this class due to time constraints, so it doesn't really do anything in 
+	 * the game rn and it's left out of the UML. Eventually it would've combined the label and button into
+	 * a single "element" (working title) that we could easily access or modify from the GUI class. 
+	 * Would've made the GUI stuff way more modular too.
 	 * */
 }

@@ -1,3 +1,12 @@
+/**
+ * @author Seamus Jackson
+ * 
+ * the class where all of our methods for the GUI are held.
+ * these are mostly just here so that we don't have to call a ton of GUI methods in the main class,
+ * setting buttons and labels visible/invisible,
+ * and the final transition after the first "phase" of the game is over.
+ */
+
 package mainPackage;
 
 import java.awt.BorderLayout;
@@ -9,7 +18,8 @@ import javax.swing.*;
 public class GUI {
 	private int windowWidth;
 	private int windowHeight;
-
+	
+	// a bunch of JLabels
 	private JFrame frame;
 	public JButton forageButton;
 	public JButton emptyButton;
@@ -24,6 +34,7 @@ public class GUI {
 	public JLabel notificationLabel;
 	public JLabel farmCountLabel;
 
+	// constructor
 	public GUI() {
 		try {
 			// Set the Look and Feel to Nimbus
@@ -80,7 +91,8 @@ public class GUI {
 		frame.setVisible(true);
 		emptyButton.setVisible(false);
 	}
-
+	
+	// accessors and mutators for window sizing
 	public int getWindowWidth() {
 		return windowWidth;
 	}
@@ -96,7 +108,8 @@ public class GUI {
 	public void setWindowHeight(int n) {
 		windowHeight = n;
 	}
-
+	
+	// updates all of the ingame labels with the right values (ints taken from a player object)
 	public void updateLabels(int berryCount, int maxBerries, int landCount, int maxLand, int stickCount, int maxSticks,
 			int hungerLevel, int berryFarms) {
 		berryCountLabel.setText("Berries: " + berryCount + " / " + maxBerries);
@@ -105,11 +118,13 @@ public class GUI {
 		hungerLevelLabel.setText("Hunger: " + hungerLevel);
 		farmCountLabel.setText("Current Farms: " + berryFarms);
 	}
-
+	
+	// sets the text that pops up when you forage
 	public void setNotification(String notification) {
 		notificationLabel.setText(notification);
 	}
-
+	
+	// visibility setting for the buttons
 	public void setBasketButtonVisible(boolean visible) {
 		basketButton.setVisible(visible);
 	}
@@ -125,7 +140,8 @@ public class GUI {
 	public void setAdvanceButtonVisible(boolean visible) {
 		advanceButton.setVisible(visible);
 	}
-
+	
+	// end of first phase (basically end of game so far)
 	public void moveToNextStage() {
 		notificationLabel.setText("Resources Exhausted");
 		basketButton.setVisible(false);
@@ -139,7 +155,8 @@ public class GUI {
 		berryCountLabel.setText("Advance to next stage?");
 
 	}
-
+	
+	// adding action listeners
 	public void addButtonListener(ActionListener listener) {
 		forageButton.addActionListener(listener);
 		emptyButton.addActionListener(listener);

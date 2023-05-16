@@ -1,3 +1,17 @@
+/**
+ * @author Tre O'Neal
+ * @author Seamus Jackson
+ * 
+ * Originally this class would've set up how items like Baskets would work,
+ * specifically with increasing the max amount of resources the player could
+ * have, but it ended up not really being necessary and so we didn't really get
+ * the chance to use it: not only that but it ended up not being super modular
+ * 
+ * We're leaving it in the final code just to show how it helped us figure out what
+ * we wanted to do, but it probably won't be in the UML diagram since it doesn't do
+ * anything at this point
+ */
+
 package gameObjects;
 
 /**

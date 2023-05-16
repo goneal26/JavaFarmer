@@ -1,3 +1,10 @@
+/**
+ * @author Tre O'Neal
+ * @author Seamus Jackson
+ * 
+ * The farm class takes a resource that will then be automatically incremented every minute by 40 times the amount of farms
+ */
+
 package gameObjects;
 
 import java.util.Timer;

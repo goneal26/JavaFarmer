@@ -1,3 +1,12 @@
+/**
+ * @author Seamus Jackson
+ * @author Tre O'Neal
+ * 
+ * here's the class for the player. This contains all of the player inventory data, and 
+ * (if implemented) an object of this class would be passed into the save function to
+ * save the game (writing the data to a file)
+ */
+
 package mainPackage;
 
 import gameObjects.Resource;
