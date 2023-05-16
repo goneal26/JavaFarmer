@@ -1,5 +1,6 @@
 /**
  * @author Tre O'Neal
+ * @author Seamus Jackson
  * 
  * This is the class that sets up the "resource" object. This way we have some set methods for
  * interacting with resources in the game, as well as the ability to easily come up with new ones

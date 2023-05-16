@@ -1,5 +1,6 @@
 /**
  * @author Seamus Jackson
+ * @author Tre O'Neal
  * 
  * the class where all of our methods for the GUI are held.
  * these are mostly just here so that we don't have to call a ton of GUI methods in the main class,
@@ -15,11 +16,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+/**
+ * The GUI class where all of our methods for the graphical user interface are held.
+ * These methods handle setting buttons and labels visible/invisible,
+ * and the final transition after the first "phase" of the game is over.
+ */
 public class GUI {
 	private int windowWidth;
 	private int windowHeight;
 	
-	// a bunch of JLabels
+	// a bunch of JLabels 
 	private JFrame frame;
 	public JButton forageButton;
 	public JButton emptyButton;
@@ -93,23 +99,50 @@ public class GUI {
 	}
 	
 	// accessors and mutators for window sizing
+	
+	/**
+	 * Get the window width.
+	 * @return The width of the window.
+	 */
 	public int getWindowWidth() {
 		return windowWidth;
 	}
 
+	/**
+	 * Set the window width.
+	 * @param n The width to set.
+	 */
 	public void setWindowWidth(int n) {
 		windowWidth = n;
 	}
 
+	/**
+	 * Get the window height.
+	 * @return The height of the window.
+	 */
 	public int getWindowHeight() {
 		return windowHeight;
 	}
 
+	/**
+	 * Set the window height.
+	 * @param n The height to set
+	 */
 	public void setWindowHeight(int n) {
 		windowHeight = n;
 	}
 	
-	// updates all of the ingame labels with the right values (ints taken from a player object)
+	/**
+	 * Update all of the in-game labels with the corresponding values.
+	 * @param berryCount The current berry count.
+	 * @param maxBerries The maximum berry count.
+	 * @param landCount The current land count.
+	 * @param maxLand The maximum land count.
+	 * @param stickCount The current stick count.
+	 * @param maxSticks The maximum stick count.
+	 * @param hungerLevel The current hunger level.
+	 * @param berryFarms The number of current berry farms.
+	 */
 	public void updateLabels(int berryCount, int maxBerries, int landCount, int maxLand, int stickCount, int maxSticks,
 			int hungerLevel, int berryFarms) {
 		berryCountLabel.setText("Berries: " + berryCount + " / " + maxBerries);
@@ -119,29 +152,51 @@ public class GUI {
 		farmCountLabel.setText("Current Farms: " + berryFarms);
 	}
 	
-	// sets the text that pops up when you forage
+	/**
+	 * Set the notification text that pops up when you forage.
+	 * @param notification The notification text to display.
+	 */
 	public void setNotification(String notification) {
 		notificationLabel.setText(notification);
 	}
 	
-	// visibility setting for the buttons
+	/**
+	 * Set the visibility of the basket button.
+	 * @param visible true to make the button visible, false otherwise.
+	 */
 	public void setBasketButtonVisible(boolean visible) {
 		basketButton.setVisible(visible);
 	}
 
+	/**
+	 * Set the visibility of the make farm button.
+	 * @param visible true to make the button visible, false otherwise.
+	 */
 	public void setMakeFarmButtonVisible(boolean visible) {
 		makeFarmButton.setVisible(visible);
 	}
 
+	/**
+	 * Set the visibility of the land label.
+	 * @param visible true to make the label visible, false otherwise.
+	 */
 	public void setLandLabelVisible(boolean visible) {
 		landCountLabel.setVisible(visible);
 	}
 
+	/**
+	 * Set the visibility of the advance button.
+	 * @param visible true to make the button visible, false otherwise.
+	 */
 	public void setAdvanceButtonVisible(boolean visible) {
 		advanceButton.setVisible(visible);
 	}
 	
 	// end of first phase (basically end of game so far)
+	
+	/**
+	 * Move to the next stage of the game, typically after the first phase is over.
+	 */
 	public void moveToNextStage() {
 		notificationLabel.setText("Resources Exhausted");
 		basketButton.setVisible(false);
@@ -157,6 +212,11 @@ public class GUI {
 	}
 	
 	// adding action listeners
+	
+	/**
+	 * Add an ActionListener to the buttons.
+	 * @param listener The ActionListener to add.
+	 */
 	public void addButtonListener(ActionListener listener) {
 		forageButton.addActionListener(listener);
 		emptyButton.addActionListener(listener);

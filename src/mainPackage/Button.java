@@ -1,5 +1,6 @@
 /**
  * @author Tre O'Neal
+ * @author Seamus Jackson
  * 
  * See UPDATE section at bottom of class
  */
@@ -31,14 +32,12 @@ public abstract class Button {
 	 * TO-DO:
 	 * this is gonna be an abstract class that our resource
 	 * and item buttons/labels come from. We can then just 
-	 * instantiate these in our GUI class later. It's complicated
-	 * af but I think im figuring it out, been sketching out how
-	 * its gonna work
+	 * instantiate these in our GUI class later.
 	 * 
 	 * 
 	 * UPDATE:
 	 * Didn't end up completing this class due to time constraints, so it doesn't really do anything in 
-	 * the game rn and it's left out of the UML. Eventually it would've combined the label and button into
+	 * the game currently and it's left out of the UML. Eventually it would've combined the label and button into
 	 * a single "element" (working title) that we could easily access or modify from the GUI class. 
 	 * Would've made the GUI stuff way more modular too.
 	 * */
